@@ -43,7 +43,7 @@ export default function Contact() {
 
   const handleDirectionsClick = () => {
     console.log('Directions clicked')
-    window.open('https://maps.google.com/?q=13948+W+Hillsborough+Ave,+Tampa,+FL+33635', '_blank')
+    window.open('https://maps.google.com/?q=29J3%2BQ6+Tampa,+Florida', '_blank')
   }
 
   const handleBookingClick = () => {
@@ -248,7 +248,7 @@ export default function Contact() {
           <CardContent className="p-0">
             <div className="h-96 w-full rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps?q=28.0145,-82.5890&output=embed&z=17"
+                src="https://www.google.com/maps?q=29J3%2BQ6+Tampa,+Florida&output=embed&z=17"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
