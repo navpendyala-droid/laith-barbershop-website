@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { MapPin, Clock, Phone } from 'lucide-react'
+import { MapPin, Clock, Phone, Scissors } from 'lucide-react'
 import heroImage from '@assets/generated_images/Professional_barbershop_interior_shot_803651b9.png'
 import { handleBookingAction, handleDirectCall, phoneHref, displayPhoneNumber } from '@/utils/booking'
 
@@ -69,9 +69,7 @@ export default function Hero() {
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white sm:col-span-2 lg:col-span-1">
-            <div className="w-6 h-6 text-primary mb-2 mx-auto flex items-center justify-center">
-              ✂️
-            </div>
+            <Scissors className="w-6 h-6 text-primary mb-2 mx-auto" />
             <h3 className="font-semibold mb-1">Expert Cuts</h3>
             <p className="text-sm text-gray-200">All ages welcome</p>
           </div>

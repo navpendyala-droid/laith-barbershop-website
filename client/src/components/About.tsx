@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Scissors, Heart, Clock } from 'lucide-react'
-import barberImage from '@assets/generated_images/Professional_barber_portrait_7b066d2e.png'
-import precisionImage from '@assets/generated_images/Precision_haircut_close-up_e40b160a.png'
+import barberImage from '@assets/generated_images/Professional_barbershop_scene_904e8002.png'
+import precisionImage from '@assets/generated_images/Barbershop_tools_workspace_shot_3eacdf3e.png'
 import { handleBookingAction } from '@/utils/booking'
 
 const promises = [
@@ -84,16 +84,20 @@ export default function About() {
             <div className="space-y-4">
               <img 
                 src={barberImage} 
-                alt="Professional barber at work" 
+                alt="Professional barbershop scene with barber and customer" 
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
+                loading="lazy"
+                decoding="async"
                 data-testid="img-barber"
               />
             </div>
             <div className="space-y-4 pt-8">
               <img 
                 src={precisionImage} 
-                alt="Precision haircut technique" 
+                alt="Professional barbershop tools and workspace" 
                 className="w-full h-64 object-cover rounded-lg shadow-lg"
+                loading="lazy"
+                decoding="async"
                 data-testid="img-precision"
               />
             </div>
