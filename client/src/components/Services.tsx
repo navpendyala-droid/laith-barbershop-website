@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Scissors, Users, Star, Clock } from 'lucide-react'
+import { handleBookingAction } from '@/utils/booking'
 
 interface ServiceTier {
   name: string
@@ -45,10 +46,7 @@ const additionalServices = [
 ]
 
 export default function Services() {
-  const handleBookClick = () => {
-    console.log('Services Book Now clicked')
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const handleBookClick = () => handleBookingAction('Services')
 
   return (
     <section id="services" className="py-20 bg-background">

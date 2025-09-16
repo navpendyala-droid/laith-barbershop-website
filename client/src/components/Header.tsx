@@ -1,20 +1,14 @@
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from 'lucide-react'
+import { handleBookingAction, handleDirectCall, phoneHref, displayPhoneNumber } from '@/utils/booking'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const handleCallClick = () => {
-    console.log('Call button clicked')
-    window.location.href = 'tel:+18135505858'
-  }
+  const handleCallClick = () => handleDirectCall('Header')
 
-  const handleBookClick = () => {
-    console.log('Book Now clicked')
-    // Scroll to contact section for now
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const handleBookClick = () => handleBookingAction('Header')
 
   const handleNavClick = (section: string) => {
     console.log(`Navigating to ${section}`)

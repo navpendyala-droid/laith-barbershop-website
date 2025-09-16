@@ -1,17 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { MapPin, Clock, Phone } from 'lucide-react'
 import heroImage from '@assets/generated_images/Professional_barbershop_interior_shot_803651b9.png'
+import { handleBookingAction, handleDirectCall, phoneHref, displayPhoneNumber } from '@/utils/booking'
 
 export default function Hero() {
-  const handleBookClick = () => {
-    console.log('Hero Book Now clicked')
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const handleBookClick = () => handleBookingAction('Hero')
 
-  const handleCallClick = () => {
-    console.log('Hero Call clicked')
-    window.location.href = 'tel:+18135505858'
-  }
+  const handleCallClick = () => handleDirectCall('Hero')
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -48,16 +43,15 @@ export default function Hero() {
           >
             Book Your Appointment
           </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="text-lg px-8 py-3 bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
-            onClick={handleCallClick}
+          <a
+            href={phoneHref}
+            className="inline-flex items-center justify-center gap-2 h-11 text-lg px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 rounded-md font-medium transition-colors"
             data-testid="button-call-hero"
+            aria-label={`Call us at ${displayPhoneNumber}`}
           >
-            <Phone className="w-5 h-5 mr-2" />
-            (813) 550-5858
-          </Button>
+            <Phone className="w-5 h-5" />
+            {displayPhoneNumber}
+          </a>
         </div>
 
         {/* Quick Info Cards */}

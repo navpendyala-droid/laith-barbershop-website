@@ -1,11 +1,9 @@
 import { MapPin, Phone, Clock, Mail } from 'lucide-react'
 import { Button } from "@/components/ui/button"
+import { handleDirectCall, phoneHref, displayPhoneNumber } from '@/utils/booking'
 
 export default function Footer() {
-  const handleCallClick = () => {
-    console.log('Footer call clicked')
-    window.location.href = 'tel:+18135505858'
-  }
+  const handleCallClick = () => handleDirectCall('Footer')
 
   const handleEmailClick = () => {
     console.log('Footer email clicked')
@@ -65,10 +63,11 @@ export default function Footer() {
               <div className="flex items-center gap-2" data-testid="footer-phone">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                 <a 
-                  href="tel:+18135505858" 
+                  href={phoneHref}
                   className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label={`Call us at ${displayPhoneNumber}`}
                 >
-                  (813) 550-5858
+                  {displayPhoneNumber}
                 </a>
               </div>
               

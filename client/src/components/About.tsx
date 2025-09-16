@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Scissors, Heart, Clock } from 'lucide-react'
 import barberImage from '@assets/generated_images/Professional_barber_portrait_7b066d2e.png'
 import precisionImage from '@assets/generated_images/Precision_haircut_close-up_e40b160a.png'
+import { handleBookingAction } from '@/utils/booking'
 
 const promises = [
   {
@@ -28,10 +29,7 @@ const promises = [
 ]
 
 export default function About() {
-  const handleBookClick = () => {
-    console.log('About Book Now clicked')
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const handleBookClick = () => handleBookingAction('About')
 
   return (
     <section id="about" className="py-20 bg-muted/30">

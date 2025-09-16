@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Clock, Mail, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
+import { handleBookingAction, handleDirectCall, phoneHref, displayPhoneNumber } from '@/utils/booking'
 
 const businessHours = [
   { day: "Monday", hours: "Closed", isToday: false },
@@ -38,10 +39,7 @@ export default function Contact() {
     window.location.href = `mailto:info@lwbylaith.com?subject=${subject}&body=${body}`
   }
 
-  const handleCallClick = () => {
-    console.log('Call button clicked')
-    window.location.href = 'tel:+18135505858'
-  }
+  const handleCallClick = () => handleDirectCall('Contact')
 
   const handleDirectionsClick = () => {
     console.log('Directions clicked')
@@ -49,9 +47,14 @@ export default function Contact() {
   }
 
   const handleBookingClick = () => {
-    console.log('Square booking clicked - would open booking system')
-    // Placeholder for Square Appointments integration
-    alert('Booking system would open here. Please call to schedule your appointment.')
+    console.log('Square booking clicked - directing to call for now')
+    // Show better user feedback until Square Appointments is integrated
+    const confirmed = confirm(
+      'Online booking is coming soon! Would you like to call us now to schedule your appointment?'
+    )
+    if (confirmed) {
+      window.location.href = phoneHref
+    }
   }
 
   return (
@@ -99,14 +102,15 @@ export default function Contact() {
               {/* Phone */}
               <div>
                 <h4 className="font-semibold text-foreground mb-2">Phone</h4>
-                <Button 
-                  variant="outline" 
-                  onClick={handleCallClick}
+                <a 
+                  href={phoneHref}
+                  className="inline-flex items-center justify-center gap-2 h-9 px-4 py-2 bg-transparent border border-input rounded-md text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
                   data-testid="button-call-contact"
+                  aria-label={`Call us at ${displayPhoneNumber}`}
                 >
-                  <Phone className="w-4 h-4 mr-2" />
-                  (813) 550-5858
-                </Button>
+                  <Phone className="w-4 h-4" />
+                  {displayPhoneNumber}
+                </a>
               </div>
 
               {/* Email */}
@@ -242,16 +246,32 @@ export default function Contact() {
         {/* Map */}
         <Card data-testid="card-map">
           <CardContent className="p-0">
-            <div className="h-96 w-full bg-muted rounded-lg flex items-center justify-center">
-              <div className="text-center text-muted-foreground">
-                <MapPin className="w-12 h-12 mx-auto mb-4 text-primary" />
-                <h3 className="text-lg font-semibold mb-2">Interactive Map</h3>
-                <p className="mb-4">13948 W Hillsborough Ave, Tampa, FL 33635</p>
+            <div className="h-96 w-full rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps?q=13948+W+Hillsborough+Ave,+Tampa,+FL+33635&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Lw by Laith L.L.C & Barbershop Location"
+                data-testid="map-embed"
+              ></iframe>
+            </div>
+            <div className="p-4 bg-card">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="font-semibold text-foreground">Visit Our Shop</h4>
+                  <p className="text-sm text-muted-foreground">13948 W Hillsborough Ave, Tampa, FL 33635</p>
+                </div>
                 <Button 
+                  size="sm"
                   onClick={handleDirectionsClick}
                   data-testid="button-map-directions"
                 >
-                  View in Google Maps
+                  <MapPin className="w-4 h-4 mr-2" />
+                  Directions
                 </Button>
               </div>
             </div>
