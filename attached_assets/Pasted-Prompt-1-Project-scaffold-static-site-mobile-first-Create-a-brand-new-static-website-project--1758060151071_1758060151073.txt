@@ -1,0 +1,96 @@
+Prompt 1 — Project scaffold (static site, mobile-first)
+“Create a brand-new static website project for a one-person salon. No backend, no payments, no logins, no WordPress, no frameworks. Files:
+index.html
+services.html
+about.html
+contact.html
+book.html
+assets/styles.css
+assets/img/ (placeholder images)
+js/main.js (only for mobile menu toggle)
+Requirements: mobile-first, clean and lightweight; use system font stack, CSS variables for colors/spacing, accessible contrast, large tap targets. Keep CSS simple (no libraries). Add a basic container class (max-width ~1100px, padding). Include a simple header with SALON_NAME logo text, nav links, and a ‘Book Now’ CTA (goes to /book.html). Include a footer with address, hours, and socials placeholders.”
+________________________________________
+Prompt 2 — Header, nav, and footer details
+“Build a responsive header and footer used across all pages:
+•	Header: SALON_NAME (as text logo), nav links: Home, Services, About, Contact, Book Now. On mobile, collapse to a hamburger menu (js/main.js handles toggle).
+•	Footer: ADDRESS_LINE, CITY, STATE, HOURS_TEXT, phone as tap-to-call link (tel:PHONE_E164), simple social icons (as plain links).
+•	Make a reusable ‘btn’ class and a ‘btn-primary’ style for CTAs.
+Ensure semantic HTML and ARIA for the mobile menu button.”
+________________________________________
+Prompt 3 — Home page content
+“On index.html, create:
+•	Hero section with headline (e.g., ‘Look great. Feel amazing.’), short subtext, and a Book Now button to /book.html.
+•	Three quick highlight cards (e.g., Expert Cuts, Friendly Service, Tampa FL).
+•	Mini ‘About’ teaser with a photo and a link to /about.html.
+•	Map teaser + ‘Call now’ button (tap-to-call PHONE_E164).
+Keep imagery in assets/img with placeholders; ensure layout is responsive.”
+________________________________________
+Prompt 4 — Services & pricing page
+“On services.html, build a simple, readable list of services with name, duration, price. Add a ‘Book Now’ button near the top and at the bottom (to /book.html). Use a semantic table or cards; ensure mobile readability. Add a note: ‘Online booking powered by Square Appointments.’”
+________________________________________
+Prompt 5 — About page
+“On about.html, write a short owner bio, philosophy, and 1–2 placeholder photos. Include a small ‘Our promise’ list (cleanliness, quality, time-respect). Add a CTA Book Now button to /book.html.”
+________________________________________
+Prompt 6 — Contact page (map + tap-to-call)
+“On contact.html, include:
+•	Address, tap-to-call phone link, and email link.
+•	An embedded Google Map iframe using ADDRESS_LINE, CITY, STATE (placeholder).
+•	Optional simple contact form using a mailto: fallback (no backend).
+Ensure everything is accessible on mobile.”
+________________________________________
+Prompt 7 — Book page with Square embed (placeholder)
+“On book.html, add a short intro text and embed Square Appointments with an iframe placeholder:
+<iframe
+  src=\"SQUARE_BOOKING_URL\"
+  width=\"100%\"
+  height=\"900\"
+  style=\"border:0\"
+  title=\"Book an appointment\">
+</iframe>
+Also include a fallback button that opens SQUARE_BOOKING_URL in a new tab if the iframe doesn’t load.”
+________________________________________
+Prompt 8 — Lightweight styles & utilities
+“Fill assets/styles.css with: CSS variables for colors/spacing; a system font stack; container, grid utility, card, and button styles; hero, highlights, and footer styles; and a simple media query around 768px. Keep CSS under ~300 lines, readable, and accessible (contrast AA).”
+________________________________________
+Prompt 9 — Mobile menu JS
+“Implement js/main.js to toggle the mobile nav. No libraries. Ensure focus states and ARIA attributes change correctly (expanded/collapsed).”
+________________________________________
+Prompt 10 — GrabMore promo block (optional upsell)
+“Add a reusable ‘GrabMore prepaid promo’ block component. Place it near the bottom of index.html and also near the bottom of services.html. Copy text:
+‘Save on your next visit — Buy prepaid credits on GrabMore and apply them here.’
+Add a button linking to GRABMORE_PROMO_URL (placeholder). Style as a simple card with the existing design system.”
+________________________________________
+Prompt 11 — SEO basics
+“Add basic SEO to every page:
+•	Unique <title> format: ‘Page — SALON_NAME, CITY’
+•	<meta name=\"description\"> per page
+•	Open Graph tags on index.html (og:title, og:description, og:image placeholder, og:type, og:url)
+•	A sitemap.xml and robots.txt suitable for a small brochure site
+•	Favicon link (placeholder)”
+________________________________________
+Prompt 12 — Performance & accessibility pass
+“Optimize for performance and accessibility:
+•	Ensure images have alt text and are sized responsively.
+•	Avoid external fonts; use system font stack.
+•	Ensure buttons/links have visible focus states.
+•	Check color contrast meets AA.
+•	Add loading=\"lazy\" to non-critical images.
+•	Keep overall CSS and JS small (no heavy libraries).”
+________________________________________
+Prompt 13 — 404 page + small polish
+“Add a simple 404.html with a link back to Home and Book Now. Ensure nav highlights the active page. Add smooth scroll for same-page anchors (if any) using CSS only or minimal JS.”
+________________________________________
+Prompt 14 — Replace placeholders with easy ‘edit me’ comments
+“In each HTML file and in assets/styles.css, add short <!-- EDIT ME --> comments next to salon-specific content (SALON_NAME, address, hours, services, SQUARE_BOOKING_URL, GRABMORE_PROMO_URL) so a non-technical person can update later.”
+________________________________________
+Prompt 15 — README + Handover
+“Create a concise README.md and HANDOVER.md:
+•	How to edit text, prices, hours
+•	Where to paste the real SQUARE_BOOKING_URL
+•	How to change colors in CSS variables
+•	How to deploy to Netlify (drag-and-drop)
+•	How to connect a domain on Netlify
+•	Monthly maintenance checklist (verify SSL, update hours/promos, check Square iframe loads)”
+________________________________________
+Prompt 16 — Netlify deploy helpers
+“Add a minimal netlify.toml with a clean redirect for 404 to 404.html. Provide a short section in README with step-by-step: (1) create Netlify site, (2) drag the folder to deploy, (3) add custom domain, (4) enable HTTPS. No build step is required since this is a static site.”
