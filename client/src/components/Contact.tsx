@@ -5,16 +5,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Clock, Mail, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 import { handleBookingAction, handleDirectCall, phoneHref, displayPhoneNumber } from '@/utils/booking'
-
-const businessHours = [
-  { day: "Monday", hours: "Closed", isToday: false },
-  { day: "Tuesday", hours: "10 AM – 7 PM", isToday: false },
-  { day: "Wednesday", hours: "10 AM – 7 PM", isToday: false },
-  { day: "Thursday", hours: "10 AM – 7 PM", isToday: false },
-  { day: "Friday", hours: "10 AM – 7 PM", isToday: false },
-  { day: "Saturday", hours: "9 AM – 5 PM", isToday: false },
-  { day: "Sunday", hours: "10 AM – 4:30 PM", isToday: true }
-]
+import { businessHours } from '@/utils/businessHours'
 
 export default function Contact() {
   const [formData, setFormData] = useState({

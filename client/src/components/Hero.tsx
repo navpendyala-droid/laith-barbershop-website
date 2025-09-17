@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { MapPin, Clock, Phone, Scissors } from 'lucide-react'
 import heroImage from '@assets/generated_images/Professional_barbershop_interior_shot_803651b9.png'
 import { handleBookingAction, handleDirectCall, phoneHref, displayPhoneNumber } from '@/utils/booking'
+import { getTodaysHours } from '@/utils/businessHours'
 
 export default function Hero() {
   const handleBookClick = () => handleBookingAction('Hero')
@@ -22,8 +23,8 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto mt-16 sm:mt-0">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
           Look Great.{' '}
           <span className="text-primary">Feel Amazing.</span>
         </h1>
@@ -65,7 +66,7 @@ export default function Hero() {
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white">
             <Clock className="w-6 h-6 text-primary mb-2 mx-auto" />
             <h3 className="font-semibold mb-1">Open Today</h3>
-            <p className="text-sm text-gray-200">10 AM – 7 PM</p>
+            <p className="text-sm text-gray-200">{getTodaysHours()}</p>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 text-white sm:col-span-2 lg:col-span-1">
