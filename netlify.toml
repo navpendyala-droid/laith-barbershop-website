@@ -1,0 +1,13 @@
+[build]
+  command = "vite build"
+  publish = "dist"
+
+# Redirect all requests to index.html for single-page application routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Optimize build settings
+[build.environment]
+  NODE_VERSION = "18"
