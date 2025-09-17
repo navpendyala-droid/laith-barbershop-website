@@ -1,6 +1,6 @@
 [build]
   command = "vite build"
-  publish = "dist"
+  publish = "dist/public"
 
 # Redirect all requests to index.html for single-page application routing
 [[redirects]]
